@@ -23,7 +23,7 @@ class Http
         $this->client = $client;
 
         $this->http = new HttpClient([
-            'defaults' => ['exceptions' => false],
+            'http_errors' => false,
             'headers' => ['Content-Type' => 'application/json']
         ]);
     }
@@ -107,19 +107,17 @@ class Http
 
         $url = "{$this->client->getApiUrl()}/{$this->client->getApiVersion()}/{$uri}";
 
-        $request = $this->http->createRequest($method, $url, [
+        $response = $this->http->request($method, $url, [
                 'headers' => ['Authorization' => "Bearer {$this->client->getAccessToken()}"],
                 'query' => $query,
                 'json' => $body,
             ]
         );
 
-        $response = $this->http->send($request);
-
         if (in_array($response->getStatusCode(), range(200, 299))) {
-            return $response->json(['object' => ($this->client->getReturnType() == 'object' ? true : false)]);
+            return json_decode($response->getBody()->getContents(), ($this->client->getReturnType() == 'object' ? false : true));
         } else {
-            $json = $response->json(['object' => true]);
+            $json = json_decode($response->getBody()->getContents());
 
             switch ($response->getStatusCode()) {
                 case '400':

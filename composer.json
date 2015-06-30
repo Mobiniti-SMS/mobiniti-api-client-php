@@ -1,0 +1,23 @@
+{
+  "name": "Greyght/Mobiniti-Api-Php-Client",
+  "description": "Mobiniti PHP Api Client",
+  "license": "MIT",
+  "keywords": ["sms"],
+  "authors": [
+    {
+      "name": "Jason Godish",
+      "email": "jason@mobiniti.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "~5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Mobiniti\\Api\\": "src/"
+    }
+  }
+}

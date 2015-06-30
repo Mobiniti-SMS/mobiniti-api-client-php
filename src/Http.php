@@ -142,7 +142,7 @@ class Http
 
                     break;
                 case '404':
-                    throw new NotFoundException($json->message, 404);
+                    throw new NotFoundException('Not Found', 404);
 
                     break;
                 case '405':

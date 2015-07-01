@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit
+        bootstrap="tests/bootstrap.php"
+        colors="true"
+        backupGlobals="false"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        >
+    <php>
+        <env name="ACCESS_TOKEN" value="" />
+    </php>
+
+    <testsuites>
+        <testsuite name="Mobiniti API Unit Test Suites">
+            <directory>./Mobiniti/API/Tests</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

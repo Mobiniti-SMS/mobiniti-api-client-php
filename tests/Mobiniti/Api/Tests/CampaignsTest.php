@@ -32,7 +32,7 @@ class CampaignsTest extends BasicTest
     {
         $campaigns = $this->client->campaigns()->all();
         $this->assertEquals(is_object($campaigns), true, 'Should return an object');
-        $this->assertEquals(is_object($campaigns->data), true, 'Should return an object containing an array called "data"');
+        $this->assertEquals(is_array($campaigns->data), true, 'Should return an object containing an array called "data"');
         $this->assertEquals(strlen($campaigns->data[0]->id), 36, 'Returns a non-uuid for campaign');
     }
 

@@ -15,6 +15,8 @@ class Client
 
     protected $groups;
 
+    protected $optins;
+
     protected $messages;
 
     protected $coupons;
@@ -37,6 +39,7 @@ class Client
         $this->contacts = new Contacts($this);
         $this->coupons = new Coupons($this);
         $this->groups = new Groups($this);
+        $this->optins = new Optins($this);
         $this->messages = new Messages($this);
     }
 
@@ -154,6 +157,14 @@ class Client
     public function groups()
     {
         return $this->groups;
+    }
+
+    /**
+     * @return Optins
+     */
+    public function optins()
+    {
+        return $this->optins;
     }
 
     /**

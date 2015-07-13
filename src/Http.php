@@ -1,12 +1,17 @@
 <?php namespace Mobiniti\Api;
 
 use GuzzleHttp\Client as HttpClient;
+use Mobiniti\Api\Exceptions\Http\ForbiddenException;
+use Mobiniti\Api\Exceptions\Http\InternalServerErrorException;
 use Mobiniti\Api\Exceptions\Http\NotFoundException;
 use Mobiniti\Api\Exceptions\Http\BadRequestException;
+use Mobiniti\Api\Exceptions\Http\RateLimitException;
+use Mobiniti\Api\Exceptions\Http\ServiceUnavailableException;
 use Mobiniti\Api\Exceptions\Http\UnauthorizedException;
 use Mobiniti\Api\Exceptions\Http\PaymentRequiredException;
 use Mobiniti\Api\Exceptions\Http\MethodNotAllowedException;
 use Mobiniti\Api\Exceptions\Http\UnprocessableEntityException;
+use Mobiniti\Api\Exceptions\MobinitiException;
 
 class Http
 {
@@ -141,6 +146,10 @@ class Http
                     throw new PaymentRequiredException($json->message, 402);
 
                     break;
+                case '403':
+                    throw new ForbiddenException('Forbidden', 403);
+
+                    break;
                 case '404':
                     throw new NotFoundException('Not Found', 404);
 
@@ -154,8 +163,20 @@ class Http
                         isset($json->errors) ? $json->errors : []);
 
                     break;
-                default:
+                case '429':
+                    throw new RateLimitException('Too Many Requests', 429);
 
+                    break;
+                case '500':
+                    throw new InternalServerErrorException('Internal Server Error', 500);
+
+                    break;
+                case '503':
+                    throw new ServiceUnavailableException('Service Unavailable', 503);
+
+                    break;
+                default:
+                    Throw new MobinitiException('Not Implemented', 501);
             }
         }
     }

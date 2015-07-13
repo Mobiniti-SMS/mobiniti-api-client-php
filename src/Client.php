@@ -21,6 +21,8 @@ class Client
 
     protected $coupons;
 
+    protected $coupon_templates;
+
     protected $return_types = ['array', 'object'];
 
     protected $return_type;
@@ -41,6 +43,7 @@ class Client
         $this->groups = new Groups($this);
         $this->optins = new Optins($this);
         $this->messages = new Messages($this);
+        $this->coupon_templates = new CouponTemplates($this);
     }
 
     /**
@@ -149,6 +152,14 @@ class Client
     public function coupons()
     {
         return $this->coupons;
+    }
+
+    /**
+     * @return CouponTemplates
+     */
+    public function coupon_templates()
+    {
+        return $this->coupon_templates;
     }
 
     /**

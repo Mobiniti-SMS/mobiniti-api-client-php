@@ -9,6 +9,8 @@ class Client
 
     protected $access_token;
 
+    protected $debug;
+
     protected $contacts;
 
     protected $campaigns;
@@ -37,6 +39,7 @@ class Client
 
         $this->setReturnType($return_type);
 
+        $this->debug = new Debug();
         $this->campaigns = new Campaigns($this);
         $this->contacts = new Contacts($this);
         $this->coupons = new Coupons($this);
@@ -116,6 +119,30 @@ class Client
     public function getAccessToken()
     {
         return $this->access_token;
+    }
+
+    /**
+     * Set debug variables
+     *
+     * @param $requestId
+     *
+     * @return $this
+     */
+    public function setDebug($requestId)
+    {
+        $this->debug->setRequestId($requestId);
+
+        return $this;
+    }
+
+    /**
+     * Get the debug object
+     *
+     * @return Debug
+     */
+    public function getDebug()
+    {
+        return $this->debug;
     }
 
     /**

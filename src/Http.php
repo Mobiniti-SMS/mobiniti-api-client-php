@@ -119,6 +119,8 @@ class Http
             ]
         );
 
+        $this->client->setDebug($response->getHeader('X-Request-Id'));
+
         if (in_array($response->getStatusCode(), range(200, 299))) {
             return json_decode($response->getBody()->getContents(), ($this->client->getReturnType() == 'object' ? false : true));
         } else {
@@ -179,6 +181,11 @@ class Http
                     Throw new MobinitiException('Not Implemented', 501);
             }
         }
+    }
+
+    public function getLastRequestId()
+    {
+        return $this->lastRequestId;
     }
 
 }

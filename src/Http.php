@@ -177,6 +177,10 @@ class Http
                     throw new ServiceUnavailableException('Service Unavailable', 503);
 
                     break;
+                case '504':
+                    throw new GatewayTimeoutException('Service Unavailable', 503);
+
+                    break;
                 default:
                     Throw new MobinitiException('Not Implemented', 501);
             }

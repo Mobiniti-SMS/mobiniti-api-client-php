@@ -38,4 +38,16 @@ class Messages extends AbstractClient
         return $this->http->get("{$this->resource}/{$id}");
     }
 
+    /**
+     * Send a sms message to a contact
+     *
+     * @param array $data
+     *
+     * @return object
+     */
+    public function create(array $data)
+    {
+        return $this->http->post($this->resource, $data);
+    }
+
 }

@@ -29,7 +29,8 @@ class Http
 
         $this->http = new HttpClient([
             'http_errors' => false,
-            'headers' => ['Content-Type' => 'application/json']
+            'headers' => ['Content-Type' => 'application/json'],
+            'verify' => realpath(dirname(__FILE__) . '/../ca-certificates.crt'),
         ]);
     }
 
@@ -114,6 +115,7 @@ class Http
 
         $response = $this->http->request($method, $url, [
                 'headers' => ['Authorization' => "Bearer {$this->client->getAccessToken()}"],
+                //'verify' => realpath(dirname(__FILE__) . '/../ca-certificates.crt'),
                 'query' => $query,
                 'json' => $body,
             ]

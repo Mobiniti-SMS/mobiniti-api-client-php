@@ -12,9 +12,9 @@ class Auth
 
     protected $http;
 
-    protected $base_url = 'http://dev.app.mobiniti.com/oauth2/api/login';
+    protected $base_url = 'https://app.mobiniti.com/oauth2/api/login';
 
-    protected $access_token_url = 'http://dev.app.mobiniti.com/oauth2/api/access_token';
+    protected $access_token_url = 'https://app.mobiniti.com/oauth2/api/access_token';
 
     /**
      * @param $client_id
@@ -27,7 +27,11 @@ class Auth
         $this->client_secret = $client_secret;
         $this->redirect_uri = $redirect_uri;
 
-        $this->http = new HttpClient(['defaults' => ['exceptions' => false]]);
+        $this->http = new HttpClient([
+            'http_errors' => false,
+            'headers' => ['Content-Type' => 'application/json'],
+            'verify' => realpath(dirname(__FILE__) . '/../ca-certificates.crt'),
+        ]);
     }
 
     /**
@@ -37,7 +41,7 @@ class Auth
      *
      * @return string
      */
-    public function getAuthorizationUrl($scopes = [])
+    public function getAuthorizationUrl(array $scopes = [])
     {
         $params = [
             'response_type' => 'code',

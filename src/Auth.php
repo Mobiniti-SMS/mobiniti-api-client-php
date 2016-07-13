@@ -74,12 +74,12 @@ class Auth
             'code' => $code,
         ];
 
-        $response = $this->http->post($this->access_token_url, ['body' => $params]);
+        $response = $this->http->post($this->access_token_url, ['form_params' => $params]);
 
         if ($response->getStatusCode() === 200) {
-            return $response->json();
+            return json_decode($response->getBody()->getContents(), true);
         } else {
-            $json = $response->json();
+            $json = json_decode($response->getBody()->getContents(), true);
             throw new OauthException("{$json['error']} - {$json['error_description']}", $response->getStatusCode());
         }
     }

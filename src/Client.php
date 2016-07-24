@@ -35,18 +35,9 @@ class Client
      */
     public function __construct($access_token = null, $return_type = 'object')
     {
-        $this->access_token = $access_token;
+	    $this->setAccessToken($access_token);
 
         $this->setReturnType($return_type);
-
-        $this->debug = new Debug();
-        $this->campaigns = new Campaigns($this);
-        $this->contacts = new Contacts($this);
-        $this->coupons = new Coupons($this);
-        $this->groups = new Groups($this);
-        $this->optins = new Optins($this);
-        $this->messages = new Messages($this);
-        $this->coupon_templates = new CouponTemplates($this);
     }
 
     /**
@@ -108,7 +99,16 @@ class Client
     {
         $this->access_token = $access_token;
 
-        return $this;
+	    $this->debug            = new Debug();
+	    $this->campaigns        = new Campaigns($this);
+	    $this->contacts         = new Contacts($this);
+	    $this->coupons          = new Coupons($this);
+	    $this->groups           = new Groups($this);
+	    $this->optins           = new Optins($this);
+	    $this->messages         = new Messages($this);
+	    $this->coupon_templates = new CouponTemplates($this);
+
+	    return $this;
     }
 
     /**

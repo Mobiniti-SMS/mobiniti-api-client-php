@@ -12,9 +12,9 @@ class Auth
 
     protected $http;
 
-    protected $base_url = 'https://app.mobiniti.com/oauth2/api/login';
+    protected $base_url = 'https://app.mobiniti.com/oauth/authorize';
 
-    protected $access_token_url = 'https://app.mobiniti.com/oauth2/api/access_token';
+    protected $access_token_url = 'https://app.mobiniti.com/oauth/token';
 
     /**
      * @param $client_id

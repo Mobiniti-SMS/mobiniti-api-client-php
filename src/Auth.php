@@ -50,7 +50,7 @@ class Auth
         ];
 
         if (count($scopes) > 0) {
-            $params['scope'] = implode(',', $scopes);
+            $params['scope'] = implode(' ', $scopes);
         }
 
         return $this->base_url . '?' . http_build_query($params, '', '&');

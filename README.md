@@ -69,4 +69,4 @@ All of the above objects have the following methods
 
 ## Documentation
 
-Please see [our docs](https://api.mobiniti.com/docs/api-introduction.html) for complete API documentation.
+Please see [our docs](https://api.mobiniti.com/v1/docs) for complete API documentation.

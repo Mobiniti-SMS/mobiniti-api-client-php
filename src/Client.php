@@ -105,6 +105,7 @@ class Client
 	    $this->coupons          = new Coupons($this);
 	    $this->groups           = new Groups($this);
 	    $this->optins           = new Optins($this);
+	    $this->message          = new Message($this);
 	    $this->messages         = new Messages($this);
 	    $this->coupon_templates = new CouponTemplates($this);
 

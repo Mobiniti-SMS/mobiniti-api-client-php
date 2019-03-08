@@ -11,8 +11,6 @@ class Message extends AbstractClient
     public function __construct(Client $client)
     {
         parent::__construct($client);
-        
-        $this->schedule = new Schedule($client);
 
         $this->resource = 'message';
     }
@@ -40,6 +38,10 @@ class Message extends AbstractClient
      */
     public function schedule()
     {
+        if (!$this->schedule) {
+            $this->schedule = new Schedule($this->client);
+        }
+        
         return $this->schedule;
     }
 

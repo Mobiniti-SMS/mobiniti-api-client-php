@@ -3,12 +3,16 @@
 class Message extends AbstractClient
 {
 
+    protected $schedule;
+    
     /**
      * @param Client $client
      */
     public function __construct(Client $client)
     {
         parent::__construct($client);
+        
+        $this->schedule = new Schedule($client);
 
         $this->resource = 'message';
     }
@@ -26,15 +30,13 @@ class Message extends AbstractClient
     }
     
     /**
-     * Schedule a message to one mobile number
+     * Schedule a messages
      *
-     * @param array $data
-     *
-     * @return object
+     * @return Schedule
      */
-    public function schedule(array $data)
+    public function schedule()
     {
-        return $this->http->post($this->resource.'/schedule', $data);
+        return $this->schedule;
     }
     
     /**

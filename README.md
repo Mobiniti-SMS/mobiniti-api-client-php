@@ -37,15 +37,26 @@ Usage example:
 ### Contacts
     $mobiniti = \Mobiniti\Api\Client('your_access_token');
     $mobiniti->contacts()
+
 ### Coupons
     $mobiniti = \Mobiniti\Api\Client('your_access_token');
     $mobiniti->coupons()
+
 ### Groups
      $mobiniti = \Mobiniti\Api\Client('your_access_token');
      $mobiniti->groups()
+
 ### Messages
     $mobiniti = \Mobiniti\Api\Client('your_access_token');
     $mobiniti->messages()
+
+### Message
+    $mobiniti = \Mobiniti\Api\Client('your_access_token');
+    $mobiniti->message()
+    
+### Message Scheduler
+    $mobiniti = \Mobiniti\Api\Client('your_access_token');
+    $mobiniti->message()->schedule()
 
 ### Object methods
 All of the above objects have the following methods

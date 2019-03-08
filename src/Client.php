@@ -207,6 +207,14 @@ class Client
     {
         return $this->optins;
     }
+    
+    /**
+     * @return Message
+     */
+    public function message()
+    {
+        return $this->message;
+    }
 
     /**
      * @return Messages

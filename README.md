@@ -54,7 +54,7 @@ All of the above objects have the following methods
 * retrieve($id)
 * create([])
 * update($id, [])
-* delete($id) - **Only available on contacts and campaigns**
+* delete($id) - **Only available on contacts, campaigns and schedule**
 
 ## Documentation
 

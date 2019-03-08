@@ -16,31 +16,11 @@ class Message extends AbstractClient
 
         $this->resource = 'message';
     }
-
-    /**
-     * Send a sms message to one number
-     *
-     * @param array $data
-     *
-     * @return object
-     */
-    public function send(array $data)
-    {
-        return $this->http->post($this->resource, $data);
-    }
-    
-    /**
-     * Schedule a messages
-     *
-     * @return Schedule
-     */
-    public function schedule()
-    {
-        return $this->schedule;
-    }
     
     /**
      *  Send personalized batch
+     *
+     * @link https://api.mobiniti.com/v1/docs#message-message-batch-send-a-batch-of-messages
      *
      * @param array $data
      *
@@ -49,6 +29,32 @@ class Message extends AbstractClient
     public function batch(array $data)
     {
         return $this->http->post($this->resource.'/batch', $data);
+    }
+    
+    /**
+     * Schedule a messages
+     *
+     * @link https://api.mobiniti.com/v1/docs#scheduled-messages
+     *
+     * @return Schedule
+     */
+    public function schedule()
+    {
+        return $this->schedule;
+    }
+
+    /**
+     * Send a sms message to one number
+     *
+     * @link https://api.mobiniti.com/v1/docs#message-message-send-an-individual-message
+     *
+     * @param array $data
+     *
+     * @return object
+     */
+    public function send(array $data)
+    {
+        return $this->http->post($this->resource, $data);
     }
 
 }

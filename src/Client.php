@@ -18,6 +18,8 @@ class Client
     protected $groups;
 
     protected $optins;
+    
+    protected $message;
 
     protected $messages;
 

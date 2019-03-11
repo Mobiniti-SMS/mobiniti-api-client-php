@@ -18,6 +18,8 @@ class Client
     protected $groups;
 
     protected $optins;
+    
+    protected $message;
 
     protected $messages;
 
@@ -105,6 +107,7 @@ class Client
 	    $this->coupons          = new Coupons($this);
 	    $this->groups           = new Groups($this);
 	    $this->optins           = new Optins($this);
+	    $this->message          = new Message($this);
 	    $this->messages         = new Messages($this);
 	    $this->coupon_templates = new CouponTemplates($this);
 
@@ -203,6 +206,14 @@ class Client
     public function optins()
     {
         return $this->optins;
+    }
+    
+    /**
+     * @return Message
+     */
+    public function message()
+    {
+        return $this->message;
     }
 
     /**

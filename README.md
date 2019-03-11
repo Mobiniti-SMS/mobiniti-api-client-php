@@ -37,15 +37,26 @@ Usage example:
 ### Contacts
     $mobiniti = \Mobiniti\Api\Client('your_access_token');
     $mobiniti->contacts()
+
 ### Coupons
     $mobiniti = \Mobiniti\Api\Client('your_access_token');
     $mobiniti->coupons()
+
 ### Groups
      $mobiniti = \Mobiniti\Api\Client('your_access_token');
      $mobiniti->groups()
+
 ### Messages
     $mobiniti = \Mobiniti\Api\Client('your_access_token');
     $mobiniti->messages()
+
+### Message
+    $mobiniti = \Mobiniti\Api\Client('your_access_token');
+    $mobiniti->message()
+    
+### Message Scheduler
+    $mobiniti = \Mobiniti\Api\Client('your_access_token');
+    $mobiniti->message()->schedule()
 
 ### Object methods
 All of the above objects have the following methods
@@ -54,8 +65,8 @@ All of the above objects have the following methods
 * retrieve($id)
 * create([])
 * update($id, [])
-* delete($id) - **Only available on contacts and campaigns**
+* delete($id) - **Only available on contacts, campaigns and schedule**
 
 ## Documentation
 
-Please see [our docs](https://api.mobiniti.com/docs/api-introduction.html) for complete API documentation.
+Please see [our docs](https://api.mobiniti.com/v1/docs) for complete API documentation.

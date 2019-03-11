@@ -6,6 +6,8 @@ abstract class AbstractClient
     protected $errors;
 
     protected $client;
+    
+    protected $http;
 
     protected $resource;
 

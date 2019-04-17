@@ -10,7 +10,7 @@ You can install the library via [Composer](http://getcomposer.org/). Add this to
 
     {
       "require": {
-        "greyght/mobiniti-php": "1.*"
+        "composer require mobiniti/api-php-client": "2.*"
       }
     }
 

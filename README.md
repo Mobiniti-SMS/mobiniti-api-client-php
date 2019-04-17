@@ -10,7 +10,7 @@ You can install the library via [Composer](http://getcomposer.org/). Add this to
 
     {
       "require": {
-        "composer require mobiniti/api-php-client": "2.*"
+        "mobiniti/api-php-client": "2.*"
       }
     }
 

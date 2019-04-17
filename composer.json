@@ -1,5 +1,5 @@
 {
-  "name": "Greyght/Mobiniti-Api-Php-Client",
+  "name": "mobiniti/api-php-client",
   "description": "Mobiniti PHP Api Client",
   "license": "MIT",
   "keywords": ["sms"],
